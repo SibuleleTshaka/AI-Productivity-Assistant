@@ -45,7 +45,6 @@ export function AiWorkbench({
       toast.error("Add some context first.");
       return;
     }
-    console.log("AI:start");
     setLoading(true);
     setError(null);
     setOutput("");
@@ -57,7 +56,6 @@ export function AiWorkbench({
           protectClientData,
         },
       });
-      console.log("AI:done", JSON.stringify(res).slice(0,200));
       setOutput(res.text);
     } catch (e) {
       setError((e as Error)?.message ?? "AI request failed.");
